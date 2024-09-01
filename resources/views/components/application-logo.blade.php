@@ -1,0 +1,1 @@
+<img src="{{ asset('assets/images/monglish-logo.png') }}" alt="Logo" style="width: 300px">
