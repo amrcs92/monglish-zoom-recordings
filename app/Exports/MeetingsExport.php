@@ -72,7 +72,7 @@ class MeetingsExport implements FromArray, WithHeadings
             'Topic',
             'Date',
             'Recording Length',
-            'Play URL (MP4)',
+            'Play URL',
         ];
     }
 }
