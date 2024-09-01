@@ -23,7 +23,7 @@
                 </div>
                 @if(Auth::user()->is_admin === 1)
                     <ul class="flex flex-col space-y-1">
-                        <li class="flex p-2 hover:bg-blue-100 {{ request()->is('admin/export-data') ? 'bg-blue-100 text-sky-700 border-r-4 border-sky-800 font-semibold' : '' }}">
+                        <li class="flex p-2 hover:bg-blue-100 {{ request()->is('admin/export/form/zoom-meetings') ? 'bg-blue-100 text-sky-700 border-r-4 border-sky-800 font-semibold' : '' }}">
                             <a href="{{ route('export.form') }}" class="flex flex-row items-center justify-between">
                                 <svg class="mx-2" width="20" height="20" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
