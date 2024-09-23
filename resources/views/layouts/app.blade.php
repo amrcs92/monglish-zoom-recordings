@@ -17,7 +17,7 @@
     </head>
     <body class="font-sans antialiased">
         @auth
-            <nav class="w-64 h-screen bg-white text-black flex flex-col border-r-2 border-gray-200" style="position: fixed; top: 0; left: 0">
+            <nav class="fixed top-0 left-0 w-64 h-screen bg-white text-black flex flex-col border-r-2 border-gray-200">
                 <div class="px-6 py-10 flex justify-left">
                     <img src="{{ asset('assets/images/monglish-logo.png') }}" alt="Logo" class="h-16">
                 </div>
@@ -30,10 +30,22 @@
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
                                         <path d="M15 21h1v2H3V7h2v1H4v14h11zm3-2H7v-4H6v5h13v-2h-1zM7 5h1V4H6v4h1zm14 10v1H10v-1H9v2h13v-2h-1zM9 1h9.4L22 4.6V8h-1V6h-4V2h-7v6H9zm9 4h3v-.31L18.31 2H18zm2.04 9h-1.063l-2.095-5h1.084l1.546 3.688L21.08 9h1.086zM16 9h-2.651A1.35 1.35 0 0 0 12 10.349v.302A1.35 1.35 0 0 0 13.349 12h1.302a.349.349 0 0 1 .349.349v.302a.349.349 0 0 1-.349.349H12v1h2.651A1.35 1.35 0 0 0 16 12.651v-.302A1.35 1.35 0 0 0 14.651 11H13.35a.349.349 0 0 1-.349-.349v-.302A.349.349 0 0 1 13.35 10H16zm-6.959 5H11v-1H9.041A1.042 1.042 0 0 1 8 11.959v-.918A1.042 1.042 0 0 1 9.041 10H11V9H9.041A2.044 2.044 0 0 0 7 11.041v.918A2.044 2.044 0 0 0 9.041 14z"></path>
-                                        <path fill="none" d="M0 0h24v24H0z"></path></g>
+                                        <path fill="none" d="M0 0h24v24H0z"></path>
+                                    </g>
                                 </svg>
                                 <span class="w-40">
                                 Export CSV
+                            </span>
+                            </a>
+                        </li>
+                        <li class="flex p-2 hover:bg-blue-100 {{ request()->is('admin/zoom-meetings') ? 'bg-blue-100 text-sky-700 border-r-4 border-sky-800 font-semibold' : '' }}">
+                            <a href="{{ route('zoom-meetings.index') }}" class="flex flex-row items-center justify-between">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2" width="20" height="20">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                                </svg>
+                                  
+                                <span class="w-40">
+                                Zoom Meetings
                             </span>
                             </a>
                         </li>
@@ -56,7 +68,7 @@
                 @endif
             </nav>
         @endauth
-        <div style="position: absolute;margin-left: 20rem;top: 50px;">
+        <div class="relative mx-auto top-12">
             @yield('content')
         </div>
     </body>

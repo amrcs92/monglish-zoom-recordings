@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ZoomController;
+use App\Http\Controllers\ZoomMeetingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -22,6 +24,9 @@ Route::middleware('auth')->group(function () {
             Route::post('/zoom-meetings', [ExportController::class, 'export'])->name('export.csv');
             Route::get('/download/{filename}', [ExportController::class, 'downloadFile'])->name('export.download');
         });
+
+        Route::get('/zoom-meetings', [ZoomMeetingsController::class, 'index'])->name('zoom-meetings.index');
+        Route::get('/get-zoom-recordings/{fromDate}/{toDate}', [ZoomController::class, 'getZoomRecordings']);
     });
 
 });
